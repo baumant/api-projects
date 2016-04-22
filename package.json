@@ -17,27 +17,3 @@
     "express": "^4.12.4"
   }
 }
-{
-  "name": "timestamp-service",
-  "version": "1.0.0",
-  "description": "Timestamp microservice",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/baumant/timestamp-microservice"
-  },
-  "bugs": "https://github.com/baumant/timestamp-microservice/issues",
-  "keywords": [
-    "Express",
-    "Node",
-    "javascript",
-  ],
-  "scripts": {
-  "start": "node index.js"
-  },
-  "author": "Tim Bauman",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.12.4"
-  }
-}
