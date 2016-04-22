@@ -1,15 +1,15 @@
 {
-  "name": "timestamp-service",
+  "name": "api-project",
   "version": "1.0.0",
-  "description": "Timestamp microservice",
-  "main": "index.js",
+  "description": "Working on creating various microservices in javascript",
+  "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/baumant/timestamp-microservice"
+    "url": "https://github.com/baumant/api-projects"
   },
-  "bugs": "https://github.com/baumant/timestamp-microservice/issues",
+  "bugs": "https://github.com/baumant/api-projects/issues",
   "scripts": {
-  "start": "node index.js"
+    "start": "node server.js"
   },
   "author": "Tim Bauman",
   "license": "MIT",

@@ -1,41 +1,50 @@
 <!DOCTYPE html>
-
 <html>
 
-	<head>
-		<style>
-			body{max-width: 900px; margin: 0 auto;}
-			h1,h3,li{font-family: Arial, Helvetica, sans-serif}
-			code{color: red;margin:0 20px}
-			ol{margin-top: 0}
-			li{padding: 5px;}
-			h3{margin-bottom: 0}
-		</style>
-	</head>
+<head>
+    <title>API Project</title>
+    <style>
+        body {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        h1,
+        h3,
+        li {
+            font-family: Arial, Helvetica, sans-serif
+        }
+        
+        code {
+            color: red;
+            margin: 0 20px
+        }
+        
+        ol {
+            margin-top: 0
+        }
+        
+        li {
+            padding: 5px;
+        }
+        
+        h3 {
+            margin-bottom: 0
+        }
+    </style>
+</head>
 
-	<body>
-        <h1>
-            Timestamp Microservice
-        </h1>
-            <div>
-                <h3>User stories:</h3>
-                <ol>
-                	<li>I can pass a string as a parameter, and it will check to see whether that string contains either a unix timestamp or a natural language date (example: January 1, 2016)</li>
-                	<li>If it does, it returns both the Unix timestamp and the natural language form of that date.</li>
-                	<li>If it does not contain a date or Unix timestamp, it returns null for those properties.</li>
-                </ol>
-            </div>
-            <h3>Example usage:</h3>
-            <code>https://dry-hamlet-8316.herokuapp.com/January 11, 2001</code><br>
-            <code>https://dry-hamlet-8316.herokuapp.com/1450137600000</code>
-            <h3>Example output:</h3>
-            <code>
-                {
-                  "unix": 1450137600000,
-                  "natural": "December 15, 2015"
-                }
-            </code>
-        </div>
-    </body>
+<body>
+    <h1>API Project</h1>
+    <p>Different Microservices using Node.js</p>
+    <div>
+        <h3>Endpoints:</h3>
+        <ol>
+            <li><a href="/api/timestamp">/api/timestamp</a></li>
+            <li><a href="/api/whoami">/api/whoami</a></li>
+        </ol>
+    </div>
+
+</body>
 
 </html>
