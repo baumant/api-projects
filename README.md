@@ -1,3 +1,9 @@
+#API Project
+A group of microservices done in Node.js. They include:
+
+* Timestamp Microservice
+* Request Header Parser Microservice
+
 ##Timestamp Microservice
 ###User stories:
 1. I can pass a string as a parameter, and it will check to see whether that string contains either a unix timestamp or a natural language date (example: January 1, 2016)
@@ -11,3 +17,10 @@
 
 ###Example output:
 `{"unix": 1450137600000,"natural": "December 15, 2015"}`
+
+##Request Header Microservice
+###Endpoint: /api/whoami
+###User Stories:
+1. I can get the IP address, language and operating system for my browser.
+
+
