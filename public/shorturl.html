@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <style>
+        body {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        h1,h3,p,li {
+            font-family: Arial, Helvetica, sans-serif
+        }
+        
+        code {
+            color: red;
+            margin: 0 20px
+        }
+        
+        ol {
+            margin-top: 0
+        }
+        
+        li {
+            padding: 5px;
+        }
+        
+        h3 {
+            margin-bottom: 0
+        }
+    </style>
+</head>
+
+<body>
+    <h1>URL Shortening Microservice</h1>
+    <div>
+        <h3>User stories:</h3>
+        <ol>
+            <li>I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.</li>
+            <li>If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.</li>
+            <li>When I visit that shortened URL, it will redirect me to my original link.</li>
+        </ol>
+    </div>
+    <h3>Example usage:</h3>
+    <code>https://dry-hamlet-8316.herokuapp.com/api/shorturl/http://timothybauman.com</code>
+    <h3>Example output:</h3>
+    <code>{ "original_url":"http://timothybauman.com", "short_url":"https://dry-hamlet-8316.herokuapp.com/9165" }</code>
+    <p>Visit: <strong>https://dry-hamlet-8316.herokuapp.com/9165</strong>  to be redirected to <strong>http://timothybauman.com</strong></p>
+</body>
+
+</html>

@@ -30,4 +30,22 @@ A group of microservices done in Node.js. They include:
 
 1. I can get the IP address, language and operating system for my browser.
 
+##URL Shortener
+**Endpoint:** `/api/shorturl`
+
+**User Stories:**
+
+1. I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.
+2. If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.
+3. When I visit that shortened URL, it will redirect me to my original link.
+
+**Example usage:**
+
+`https://dry-hamlet-8316.herokuapp.com/api/shorturl/http://timothybauman.com`
+
+**Example output:**
+
+`{ "original_url":"http://timothybauman.com", "short_url":"https://dry-hamlet-8316.herokuapp.com/9165" }`
+
+
 
