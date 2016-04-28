@@ -6,8 +6,8 @@ var routes = require("./app/routes/index.js");
 require('dotenv').config({silent: true});
 
 var app = express();
-var mongoPort = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/apiproject';
-mongo.MongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:27017/apiproject', function(err, db){
+var mongoPort = process.env.MONGODB_URI || 'mongodb://localhost:27017/apiproject';
+mongo.MongoClient.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/apiproject', function(err, db){
     if(err){
         throw err
     } else {
