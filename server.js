@@ -3,13 +3,15 @@
 var express = require('express');
 var mongo = require("mongodb");
 var routes = require("./app/routes/index.js");
+require('dotenv').config({silent: true});
 
 var app = express();
+var mongoPort = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/apiproject';
 mongo.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:27017/apiproject', function(err, db){
     if(err){
         throw err
     } else {
-        console.log('Successfully connected to MongoDB on port 27017.');
+        console.log('Successfully connected to MongoDB: ' + mongoPort);
     }
     
     app.use('/public', express.static(__dirname + '/public'));
