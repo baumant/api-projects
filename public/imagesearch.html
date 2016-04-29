@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <style>
+        body {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        h1,h3,p,li {
+            font-family: Arial, Helvetica, sans-serif
+        }
+        
+        code {
+            color: red;
+            margin: 0 20px
+        }
+        
+        ol {
+            margin-top: 0
+        }
+        
+        li {
+            padding: 5px;
+        }
+        
+        h3 {
+            margin-bottom: 0
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Image Search Abstraction Layer</h1>
+    <div>
+        <h3>User stories:</h3>
+        <ol>
+            <li>I can get the image URLs, alt text and page urls for a set of images relating to a given search string.</li>
+            <li>I can paginate through the responses by adding a ?offset=2 parameter to the URL.</li>
+            <li>I can get a list of the most recently submitted search strings.</li>
+        </ol>
+    </div>
+    <h3>Example usage:</h3>
+    <code>https://dry-hamlet-8316.herokuapp.com/api/imagesearch/cute puppies?offset=2</code>
+    <h3>Example output:</h3>
+    <code>{"image":"http://trulyhandpicked.com/wp-content/uploads/2016/03/puppies-puppies-pictures-14593490924k8gn.jpg","alt_text":"its nap time puppies pictures","page_url":"http://trulyhandpicked.com/2016/03/30/boxer-puppies-pictures/"}</code>
+    <h3>Example usage:</h3>
+    <code>https://dry-hamlet-8316.herokuapp.com/api/latest/imagesearch</code>
+    <h3>Example output:</h3>
+    <code>{"term":"puppies","when":"2016-04-29 | 17:19:59"},{"term":"cats funny","when":"2016-04-29 | 16:50:13"}</code>
+</body>
+
+</html>

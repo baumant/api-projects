@@ -47,5 +47,23 @@ A group of microservices done in Node.js. They include:
 
 `{ "original_url":"http://timothybauman.com", "short_url":"https://dry-hamlet-8316.herokuapp.com/9165" }`
 
+##Image Abstraction Layer
+**Endpoint:** `/api/imagesearch`
 
+**User Stories:**
 
+1. I can get the image URLs, alt text and page urls for a set of images relating to a given search string.
+2. I can paginate through the responses by adding a ?offset=2 parameter to the URL.
+3. I can get a list of the most recently submitted search strings.
+
+**Example usage:**
+
+`https://dry-hamlet-8316.herokuapp.com/api/imagesearch/puppies?offset=2`
+
+`https://dry-hamlet-8316.herokuapp.com/api/latest/imagesearch`
+
+**Example output:**
+
+`{"image":"http://trulyhandpicked.com/wp-content/uploads/2016/03/puppies-puppies-pictures-14593490924k8gn.jpg","alt_text":"its nap time puppies pictures","page_url":"http://trulyhandpicked.com/2016/03/30/boxer-puppies-pictures/"}`
+
+`{"term":"puppies","when":"2016-04-29 | 17:19:59"},{"term":"cats funny","when":"2016-04-29 | 16:50:13"}`

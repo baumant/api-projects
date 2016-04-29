@@ -23,6 +23,12 @@ mongo.MongoClient.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/
         max: 5000
     });
     
+    db.createCollection("searches", {
+        capped: true,
+        size: 5242880,
+        max: 5000
+    });
+    
     routes(app, db);
     
     var port = process.env.PORT || 5000;

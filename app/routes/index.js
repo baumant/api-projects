@@ -3,10 +3,12 @@
 
 var timestamp = require(process.cwd() + '/app/controllers/timestamp.js'),
     whoami = require(process.cwd() + '/app/controllers/whoami.js'),
-    Shorturl = require(process.cwd() + '/app/controllers/shorturl.js');
+    Shorturl = require(process.cwd() + '/app/controllers/shorturl.js'),
+    imageSearch = require(process.cwd() + '/app/controllers/image-search.js');
 
 module.exports = function(app, db) {
     var shorturl = new Shorturl(db);
+    var imagesearch = new imageSearch(db);
     
     app.use(function(req, res, next) {
         res.header("Access-Control-Allow-Origin", "*");
@@ -36,5 +38,14 @@ module.exports = function(app, db) {
         .get(shorturl.shorten);
     app.route('/:shortlink')
         .get(shorturl.linked);
+    
+    app.route('/api/imagesearch')
+        .get(function(req, res) {
+            res.sendFile(process.cwd() + '/public/imagesearch.html')
+        });
+    app.route('/api/imagesearch/:term')
+        .get(imagesearch.search);
+    app.route('/api/latest/imagesearch')
+        .get(imagesearch.latest);
 };
 
