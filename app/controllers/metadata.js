@@ -11,7 +11,6 @@ function metadata(){
         var response = {
             filesize: req.file.size
         }
-        console.log(req.file.size);
         res.send(response);
       });
       
