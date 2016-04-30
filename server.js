@@ -1,15 +1,17 @@
 'use strict';
 
-var express = require('express');
-var mongo = require("mongodb");
-var routes = require("./app/routes/index.js");
+var express = require('express'),
+    mongo = require("mongodb"),
+    routes = require("./app/routes/index.js");
+
 require('dotenv').config({silent: true});
 
 var app = express();
 var mongoPort = process.env.MONGODB_URI || 'mongodb://localhost:27017/apiproject';
+
 mongo.MongoClient.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/apiproject', function(err, db){
     if(err){
-        throw err
+        throw err;
     } else {
         console.log('Successfully connected to MongoDB: ' + mongoPort);
     }
@@ -35,6 +37,6 @@ mongo.MongoClient.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/
     app.listen(port, function() {
         console.log('Node.js listening on port ' + port + '...');
     });
-})
+});
 
 

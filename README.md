@@ -67,3 +67,17 @@ A group of microservices done in Node.js. They include:
 `{"image":"http://trulyhandpicked.com/wp-content/uploads/2016/03/puppies-puppies-pictures-14593490924k8gn.jpg","alt_text":"its nap time puppies pictures","page_url":"http://trulyhandpicked.com/2016/03/30/boxer-puppies-pictures/"}`
 
 `{"term":"puppies","when":"2016-04-29 | 17:19:59"},{"term":"cats funny","when":"2016-04-29 | 16:50:13"}`
+
+##File Metadata Microservice
+**Endpoint:** `/api/metadata`
+
+**User Stories:**
+
+1. I can submit a FormData object that includes a file upload.
+2. When I submit something, I will receive the file size in bytes within the JSON response
+
+**Example usage:** `upload file`
+
+**Example output:**
+
+`{"filesize":"72206"}`

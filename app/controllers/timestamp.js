@@ -4,7 +4,7 @@ function timestamp() {
         var date = {
             unix: null,
             natural: null
-        }
+        };
 
         if (input == 'Invalid Date') {
             input = new Date(parseInt(req.params.input));
@@ -22,7 +22,7 @@ function timestamp() {
             date.unix = input.getTime();
             res.json(date);
         }
-    }
+    };
 }
 
 module.exports = new timestamp();

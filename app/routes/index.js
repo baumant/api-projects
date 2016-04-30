@@ -4,7 +4,8 @@
 var timestamp = require(process.cwd() + '/app/controllers/timestamp.js'),
     whoami = require(process.cwd() + '/app/controllers/whoami.js'),
     Shorturl = require(process.cwd() + '/app/controllers/shorturl.js'),
-    imageSearch = require(process.cwd() + '/app/controllers/image-search.js');
+    imageSearch = require(process.cwd() + '/app/controllers/image-search.js'),
+    metadata = require(process.cwd() + '/app/controllers/metadata.js');
 
 module.exports = function(app, db) {
     var shorturl = new Shorturl(db);
@@ -24,7 +25,7 @@ module.exports = function(app, db) {
     app.route('/api/timestamp')
         .get(function(req, res) {
             res.sendFile(process.cwd() + '/public/timestamp.html');
-        })
+        });
     app.route('/api/timestamp/:input')
         .get(timestamp.getDate);
     app.route('/api/whoami')
@@ -41,11 +42,17 @@ module.exports = function(app, db) {
     
     app.route('/api/imagesearch')
         .get(function(req, res) {
-            res.sendFile(process.cwd() + '/public/imagesearch.html')
+            res.sendFile(process.cwd() + '/public/imagesearch.html');
         });
     app.route('/api/imagesearch/:term')
         .get(imagesearch.search);
     app.route('/api/latest/imagesearch')
         .get(imagesearch.latest);
+        
+    app.route('/api/metadata')
+        .get(function(req, res){
+            res.sendFile(process.cwd() + '/public/metadata.html');
+        })
+        .post(metadata.getMetadata);
 };
 

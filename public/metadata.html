@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <style>
+        body {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        h1,h3,p,li {
+            font-family: Arial, Helvetica, sans-serif
+        }
+        
+        code {
+            color: red;
+            margin: 0 20px
+        }
+        
+        ol {
+            margin-top: 0
+        }
+        
+        li {
+            padding: 5px;
+        }
+        
+        h3 {
+            margin-bottom: 0
+        }
+        
+        form {
+            border: 3px solid grey;
+            display: inline-block;
+            padding: 0 15px 15px 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>File Metadata Microservice</h1>
+    <div>
+        <h3>User stories:</h3>
+        <ol>
+            <li>I can submit a FormData object that includes a file upload.</li>
+            <li>When I submit something, I will receive the file size in bytes within the JSON response</li>
+        </ol>
+    </div>
+    <form  action="https://timestamp-baumant.c9users.io/api/metadata" enctype="multipart/form-data" method="POST">
+        <p>Choose a file to upload:</p>
+        <input type="file" name="datafile" size="40">
+        <input type="submit" value="Submit"/>
+    </form>
+    <h3>Example output:</h3>
+    <code>{"filesize":"72206"}</code>
+</body>
+
+</html>
