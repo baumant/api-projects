@@ -3,6 +3,9 @@ A group of microservices done in Node.js. They include:
 
 * Timestamp Microservice
 * Request Header Parser Microservice
+* URL Shortener
+* Image Abstraction Layer
+* File Metadata Microservice
 
 ##Timestamp Microservice
 **Endpoint:** `/api/timestamp`
