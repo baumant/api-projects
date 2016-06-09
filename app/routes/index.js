@@ -5,7 +5,8 @@ var timestamp = require(process.cwd() + '/app/controllers/timestamp.js'),
     whoami = require(process.cwd() + '/app/controllers/whoami.js'),
     Shorturl = require(process.cwd() + '/app/controllers/shorturl.js'),
     imageSearch = require(process.cwd() + '/app/controllers/image-search.js'),
-    metadata = require(process.cwd() + '/app/controllers/metadata.js');
+    metadata = require(process.cwd() + '/app/controllers/metadata.js'),
+    github = require(process.cwd() + '/app/controllers/github.js');
 
 module.exports = function(app, db) {
     var shorturl = new Shorturl(db);
@@ -28,6 +29,7 @@ module.exports = function(app, db) {
         });
     app.route('/api/timestamp/:input')
         .get(timestamp.getDate);
+    
     app.route('/api/whoami')
         .get(whoami.getInfo);
         
@@ -54,5 +56,8 @@ module.exports = function(app, db) {
             res.sendFile(process.cwd() + '/public/metadata.html');
         })
         .post(metadata.getMetadata);
+        
+    app.route('/api/github/:user/:sort')
+        .get(github.getData);
 };
 
