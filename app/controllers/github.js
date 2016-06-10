@@ -68,8 +68,16 @@ function github() {
           }
         }, function(err, response, data) {
           if(err) throw err;
+          console.log(data);
           user.repos = data.public_repos;
           user.followers = data.followers;
+          user.avatar = data.avatar_url;
+          user.link = data.html_url;
+          user.company = data.company;
+          user.website = data.blog;
+          user.location = data.location;
+          user.email = data.email;
+          user.bio = data.bio;
           callback(null, following);
         });
       };
