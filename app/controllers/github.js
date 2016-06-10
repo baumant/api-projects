@@ -21,7 +21,7 @@ function github() {
               'User-Agent': 'GitHub-Stats-App'
             }
           };
-      
+      following.push({name: user, og: true});
       request(options, function(err, response, data){
         if(err) throw err;
         
@@ -68,7 +68,6 @@ function github() {
           }
         }, function(err, response, data) {
           if(err) throw err;
-          console.log(data);
           user.repos = data.public_repos;
           user.followers = data.followers;
           user.avatar = data.avatar_url;
@@ -78,6 +77,7 @@ function github() {
           user.location = data.location;
           user.email = data.email;
           user.bio = data.bio;
+          user.realname = data.name;
           callback(null, following);
         });
       };
