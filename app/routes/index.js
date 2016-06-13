@@ -6,7 +6,8 @@ var timestamp = require(process.cwd() + '/app/controllers/timestamp.js'),
     Shorturl = require(process.cwd() + '/app/controllers/shorturl.js'),
     imageSearch = require(process.cwd() + '/app/controllers/image-search.js'),
     metadata = require(process.cwd() + '/app/controllers/metadata.js'),
-    github = require(process.cwd() + '/app/controllers/github.js');
+    github = require(process.cwd() + '/app/controllers/github.js'),
+    ghAuth = require(process.cwd() + '/app/controllers/ghAuth.js');
 
 module.exports = function(app, db) {
     var shorturl = new Shorturl(db);
@@ -57,7 +58,9 @@ module.exports = function(app, db) {
         })
         .post(metadata.getMetadata);
         
-    app.route('/api/github/:user/:sort')
+    app.route('/api/github')
         .get(github.getData);
+    app.route('/auth/github')
+        .get(ghAuth.authenticate);
 };
 
