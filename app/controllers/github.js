@@ -7,16 +7,11 @@ function github() {
     
     this.getData = function(req, res){
         
-      var user = req.params.user,
+      var user = req.query.user,
           following = [],
           options = {
-            url: 'https://api.github.com/users/' + user + '/following?per_page=100',
+            url: 'https://api.github.com/users/' + user + '/following?per_page=100?access_token=' + req.query.access_token,
             json: true,
-            'auth': {
-              'user': 'baumant',
-              'pass': '@classic3',
-              'sendImmediately': true
-            },
             headers: {
               'User-Agent': 'GitHub-Stats-App'
             }
@@ -32,7 +27,7 @@ function github() {
         }
         async.map(following, getFollowingData, function(err, results){
           if(err) throw err;
-          sortFollowing(req.params.sort);
+          sortFollowing('followers');
           res.send(following);
         });
       });
@@ -56,13 +51,8 @@ function github() {
           
       var getFollowingData = function(user, callback){
         request({
-          url: 'https://api.github.com/users/' + user.name,
+          url: 'https://api.github.com/users/' + user.name + '?access_token=' + req.query.access_token,
           json: true,
-          'auth': {
-            'user': 'baumant',
-            'pass': '@classic3',
-            'sendImmediately': true
-          },
           headers: {
             'User-Agent': 'GitHub-Stats-App'
           }
