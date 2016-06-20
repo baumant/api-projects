@@ -8,14 +8,32 @@ function github() {
     this.getData = function(req, res){
         
       var user = req.query.user,
+          access_token = req.query.access_token,
           following = [],
+          loggedInUser = [],
           options = {
-            url: 'https://api.github.com/users/' + user + '/following?per_page=100?access_token=' + req.query.access_token,
+            url: 'https://api.github.com/users/' + user + '/following?per_page=100?access_token=' + access_token,
+            json: true,
+            headers: {
+              'User-Agent': 'GitHub-Stats-App'
+            }
+          },
+          options2 = {
+            url: 'https://api.github.com/user?access_token='+access_token,
             json: true,
             headers: {
               'User-Agent': 'GitHub-Stats-App'
             }
           };
+          
+      request(options2, function(err, response, data) {
+        //console.log(data);
+        loggedInUser.push({
+          'login' : data.login,
+          'avatar': data.avatar_url
+        });
+        if(err) throw err;
+      });
       following.push({name: user, og: true});
       request(options, function(err, response, data){
         if(err) throw err;
@@ -28,7 +46,8 @@ function github() {
         async.map(following, getFollowingData, function(err, results){
           if(err) throw err;
           sortFollowing('followers');
-          res.send(following);
+          loggedInUser.push(following);
+          res.send(loggedInUser);
         });
       });
         
