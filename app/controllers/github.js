@@ -12,7 +12,7 @@ function github() {
           following = [],
           loggedInUser = [],
           options = {
-            url: 'https://api.github.com/users/' + user + '/following?per_page=100?access_token=' + access_token,
+            url: 'https://api.github.com/users/' + user + '/following?per_page=100&page=1&access_token=' + access_token,
             json: true,
             headers: {
               'User-Agent': 'GitHub-Stats-App'
@@ -24,10 +24,16 @@ function github() {
             headers: {
               'User-Agent': 'GitHub-Stats-App'
             }
+          },
+          options3 = {
+            url: 'https://api.github.com/users/' + user + '/following?per_page=100&page=2&access_token=' + access_token,
+            json: true,
+            headers: {
+              'User-Agent': 'GitHub-Stats-App'
+            }
           };
           
       request(options2, function(err, response, data) {
-        //console.log(data);
         loggedInUser.push({
           'login' : data.login,
           'avatar': data.avatar_url
@@ -37,18 +43,27 @@ function github() {
       following.push({name: user, og: true});
       request(options, function(err, response, data){
         if(err) throw err;
-        
         for (var i = 0; i < data.length; i++) {
           following.push({
             name: data[i].login
           });
         }
-        async.map(following, getFollowingData, function(err, results){
+        
+        request(options3, function(err, response, data){
           if(err) throw err;
-          sortFollowing('followers');
-          loggedInUser.push(following);
-          res.send(loggedInUser);
+          for (var i = 0; i < data.length; i++) {
+            following.push({
+              name: data[i].login
+            });
+          }
+          async.map(following, getFollowingData, function(err, results){
+            if(err) throw err;
+            sortFollowing('followers');
+            loggedInUser.push(following);
+            res.send(loggedInUser);
+          });  
         });
+        
       });
         
       var sortFollowing = function(sortParam){
