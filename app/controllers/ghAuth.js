@@ -13,7 +13,7 @@ function ghAuth() {
         request.post(url, function (error, response, body) {
             
             if (!error && response.statusCode == 200) {
-                res.redirect('https://timothybauman.com/github-leaderboards?'+body);
+                res.redirect('https://timothybauman.com/github-leaderboards/?'+body);
             }
         });
 
